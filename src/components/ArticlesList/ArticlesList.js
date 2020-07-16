@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import ListComponent from '../ListComponent/ListComponent';
 import { Link } from 'react-router-dom';
 
 const ArticlesList = (props) => {
+  useEffect(() => {
+    props.actions.getArticlesMiddelware();
+  }, []);
+
   return (
     <>
       <div>

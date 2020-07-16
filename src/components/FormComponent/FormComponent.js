@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
 const handleSubmit = async (title, text, func, history) => {
-  let article = { id: generateId(), title, text };
+  let article = { id: generateId(), title, text, date: new Date() };
   await func(article);
   history.push('/');
 };

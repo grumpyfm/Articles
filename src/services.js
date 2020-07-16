@@ -8,7 +8,9 @@ const getAllArticles = async () => {
   keys.forEach((key) => {
     values.push(JSON.parse(localStorage.getItem(key)));
   });
-  return values;
+  return values.sort(function (a, b) {
+    return new Date(b.date) - new Date(a.date);
+  });
 };
 
 const postArticle = async (article) => {
