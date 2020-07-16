@@ -26,7 +26,7 @@ const App = () => {
             <Route path="/compositionScreen">
               <CompositionScreen />
             </Route>
-            <Route path="/articleScreen">
+            <Route path="/article/:id">
               <ArticleScreen />
             </Route>
           </Switch>

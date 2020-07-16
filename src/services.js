@@ -14,10 +14,12 @@ const getAllArticles = async () => {
 };
 
 const postArticle = async (article) => {
-  await localStorage.setItem(article.id, JSON.stringify(article));
+  localStorage.setItem(article.id, JSON.stringify(article));
   return true;
 };
 
-const getArticleById = () => {};
+const getArticleById = async (articleId) => {
+  return JSON.parse(localStorage.getItem(articleId));
+};
 
 export { getAllArticles, postArticle, getArticleById, generateId };
