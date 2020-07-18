@@ -12,9 +12,12 @@ import {
 } from 'react-bootstrap';
 
 const handleSubmit = async (title, text, func, history) => {
-  let article = { id: generateId(), title, text, date: new Date() };
-  await func(article);
-  history.goBack();
+  let trimTitle = title.trim();
+  let article = { id: generateId(), trimTitle, text, date: new Date() };
+  if (trimTitle && text.trim()) {
+    await func(article);
+    history.goBack();
+  }
 };
 
 const FormComponent = (props) => {
