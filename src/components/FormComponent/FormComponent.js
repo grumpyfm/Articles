@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import { generateId } from '../../services';
-import { Form, Button } from 'react-bootstrap';
+import './FormComponent.css';
 import { useHistory } from 'react-router-dom';
+import { generateId } from '../../services';
+import {
+  FormGroup,
+  Button,
+  FormControl,
+  HelpBlock,
+  Row,
+  Col,
+} from 'react-bootstrap';
 
 const handleSubmit = async (title, text, func, history) => {
   let article = { id: generateId(), title, text, date: new Date() };
   await func(article);
-  history.push('/');
+  history.goBack();
 };
 
 const FormComponent = (props) => {
@@ -16,34 +24,48 @@ const FormComponent = (props) => {
   const { putArticleMiddelware } = props;
 
   return (
-    <Form>
-      <Form.Control
-        size="lg"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        type="text"
-        placeholder="Article Title"
-      />
-      <Form.Group controlId="exampleForm.ControlTextarea1">
-        <Form.Control
+    <form>
+      <FormGroup bsClass="formGroup">
+        <FormControl
+          id="formTitle"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Article Title"
+        />
+        <HelpBlock bsClass="helperBlocks">Give it a short name</HelpBlock>
+      </FormGroup>
+      <FormGroup bsClass="formGroup">
+        <FormControl
+          id="formText"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          as="textarea"
+          componentClass="textarea"
           placeholder="Article Text"
-          rows="3"
+          rows="6"
         />
-      </Form.Group>
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          handleSubmit(title, text, putArticleMiddelware, history);
-        }}
-        variant="primary"
-        type="submit"
-      >
-        Submit
-      </Button>
-    </Form>
+        <HelpBlock bsClass="helperBlocks">
+          Type the best article you can write
+        </HelpBlock>
+      </FormGroup>
+      <Row>
+        <Col lg={3} md={12}>
+          <FormGroup bsClass="formGroup">
+            <Button
+              id="submit-cust-Btn"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit(title, text, putArticleMiddelware, history);
+              }}
+              variant="primary"
+              type="submit"
+            >
+              Submit
+            </Button>
+          </FormGroup>
+        </Col>
+      </Row>
+    </form>
   );
 };
 

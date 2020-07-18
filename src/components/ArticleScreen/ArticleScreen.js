@@ -12,14 +12,13 @@ const ArticleScreen = (props) => {
       const result = await getArticleById(currentId);
       setArticle(result);
     };
-
     fetchData();
   }, []);
 
   return (
     <div>
-      <h2>{article?.title}</h2>
-      <p>{article?.pathnametext}</p>
+      <h2 className="header">{article?.title}</h2>
+      <p>{article?.text}</p>
     </div>
   );
 };

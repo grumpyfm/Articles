@@ -1,19 +1,20 @@
 import React from 'react';
-import { ListGroup, Button } from 'react-bootstrap';
+import './ListComponent.css';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
 const ListComponent = (props) => {
   let history = useHistory();
-
   return (
-    <ListGroup variant="flush">
+    <ListGroup>
       {props.listItems?.map((item) => (
-        <ListGroup.Item
+        <ListGroupItem
+          id="customListStyle"
           key={item.id}
           onClick={() => history.push(`/article/:${item.id}`)}
         >
           {item.title}
-        </ListGroup.Item>
+        </ListGroupItem>
       ))}
     </ListGroup>
   );

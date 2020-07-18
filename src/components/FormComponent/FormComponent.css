@@ -1,0 +1,33 @@
+#submit-cust-Btn {
+  width: 100%;
+  background-color: #ec6088;
+  color: white;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px 0;
+}
+#formTitle {
+  border-radius: 12px;
+  padding: 36px 25px 25px;
+}
+#formTitle::placeholder {
+  color: #a8aeb2;
+  font-size: 24px;
+}
+#formText {
+  border-radius: 12px;
+  padding: 12px 25px;
+}
+#formText::placeholder {
+  color: #a8aeb2;
+  font-size: 21px;
+}
+.helperBlocks {
+  color: #a8aeb2;
+  font-size: 15px;
+  padding: 18px;
+}
+.formGroup {
+  margin: 0 0 35px 0;
+}

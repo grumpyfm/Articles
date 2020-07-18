@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import ListComponent from '../ListComponent/ListComponent';
 import FormComponent from '../FormComponent/FormComponent';
+
 const listLength = 3;
 
-class CompositionScreen extends Component {
-  render = () => {
-    let listItems = this.props.articles?.slice(0, listLength);
-    return (
-      <>
-        <h2>New Article</h2>
-        <FormComponent
-          putArticleMiddelware={this.props.actions.putArticleMiddelware}
-        />
-        <ListComponent listItems={listItems} />
-      </>
-    );
-  };
-}
+const CompositionScreen = (props) => {
+  let listItems = props.articles?.slice(0, listLength);
+  return (
+    <>
+      <Row className="header">
+        <Col lg={4} md={12} className="titleWrapper">
+          <h2 className="title">New Article</h2>
+        </Col>
+      </Row>
+      <FormComponent
+        putArticleMiddelware={props.actions.putArticleMiddelware}
+      />
+      <ListComponent listItems={listItems} />
+    </>
+  );
+};
+
 export default CompositionScreen;
