@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ListComponent from '../ListComponent/ListComponent';
 import FormComponent from '../FormComponent/FormComponent';

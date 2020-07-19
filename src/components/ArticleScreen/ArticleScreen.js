@@ -13,7 +13,7 @@ const ArticleScreen = (props) => {
       setArticle(result);
     };
     fetchData();
-  }, []);
+  }, [location]);
 
   return (
     <div>

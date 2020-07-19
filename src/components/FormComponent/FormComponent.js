@@ -13,7 +13,7 @@ import {
 
 const handleSubmit = async (title, text, func, history) => {
   let trimTitle = title.trim();
-  let article = { id: generateId(), trimTitle, text, date: new Date() };
+  let article = { id: generateId(), title: trimTitle, text, date: new Date() };
   if (trimTitle && text.trim()) {
     await func(article);
     history.goBack();

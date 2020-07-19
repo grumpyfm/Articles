@@ -1,5 +1,4 @@
 import * as actionTypes from './actions';
-import * as services from '../services';
 import { initialState } from './initiaState';
 
 export const appReducer = (state = initialState, action) => {

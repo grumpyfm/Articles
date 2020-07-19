@@ -7,7 +7,7 @@ import ListComponent from '../ListComponent/ListComponent';
 const ArticlesList = (props) => {
   useEffect(() => {
     props.actions.getArticlesMiddelware();
-  }, []);
+  }, [props.actions]);
   let history = useHistory();
 
   return (
